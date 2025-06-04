@@ -1,6 +1,6 @@
 /**
  * @name Unshittified VR Source
- * @version 2.1.3
+ * @version 2.1.4
  * @author wesoree,abbie,evie,scatt,Julienraptor01
  * @description unshittified visual refresh source
  */
@@ -21,6 +21,10 @@
     .buttons__37e49{
         gap:1px !important;
     }
+}
+
+.scrollerSpacer__36d07{
+    height:4px !important;
 }
 
 /* unfucked context menu by abbie and modified by me */
@@ -173,6 +177,12 @@ div[class*="clickTrapContainer"] div[role="menu"] {
         margin-top:5px !important;
         margin-bottom:5px !important;
         margin-left:6px !important;
+    }
+    .channelAttachmentArea_b77158{
+        padding-top:10px;
+    }
+    .form_f75fb0{
+        padding-top:16px; /* add whitespace near the top area */
     }
     .image__44df5{ /* remove enshittified image in announcement channels */
 	    display:none !important;
