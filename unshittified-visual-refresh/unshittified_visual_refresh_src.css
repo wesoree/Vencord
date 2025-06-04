@@ -1,16 +1,16 @@
 /**
  * @name Unshittified VR Source
  * @version 2.1.2
- * @author wesoree
+ * @author wesoree,abbie,evie,scatt,Julienraptor01
  * @description unshittified visual refresh source
  */
-/* unfucked server list*/
+/* scatt's unfucked server list */
 @import url("https://scattagain.github.io/VencordStuff/css/GuildbarRevert.css");
 
 :root {
     --custom-app-top-bar-height: 22px; /* Change the height of the top bar (reccomended 22 px) */
 }
-/* unfucked user panel */
+/* unfucked user panel by evie */
 .visual-refresh div[class^="sidebar_"] section[class^="panels_"] {
     width: 241px; /*channel list width + 1*/
     left: var(--custom-guild-list-width);
@@ -23,7 +23,7 @@
     }
 }
 
-/* unfucked context menu */
+/* unfucked context menu by abbie and modified by me */
 div[class*="clickTrapContainer"] div[role="menu"] {
     div[role="group"] {
 			padding: 0;
@@ -132,7 +132,7 @@ div[class*="clickTrapContainer"] div[role="menu"] {
     margin-top:2px !important;
 }
 
-/* unfucked chat bar */
+/* unfucked chat bar (partially made by abbie) */
 :is(form, form > div) {
 	& > div[class*="channelBottomBarArea"] {
 		--custom-channel-textarea-text-area-height: 44px;
@@ -185,7 +185,7 @@ div[class*="clickTrapContainer"] div[role="menu"] {
     }
 }
 
-/* restore old categories */
+/* restore old categories by abbie */
 ul[aria-label="Channels"] {
 	li[class*="containerDefault_"]:not([class*="containerDefault__"]) a[class*="link__"] {
 		--radius-sm: 5px;
@@ -198,7 +198,7 @@ ul[aria-label="Channels"] {
     }
 }
 
-/* unfucked titlebar */
+/* unfucked titlebar by Julienraptor01 */
 [class^=bar] {
     padding: unset; /* Force the top bar taking the whole width of the screen */
     > [class^=title] {
