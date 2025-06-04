@@ -159,6 +159,12 @@ div[class*="clickTrapContainer"] div[role="menu"] {
 .form_f75fb0{
     padding-top:16px; /* add whitespace near the top area */
 }
+.hasStackedBar__74017{
+    &>.inner__74017{
+        padding-left:5px !important;
+    }
+}
+
 :is(form, form > div) {
 	& > div[class*="channelBottomBarArea"] {
 		--custom-channel-textarea-text-area-height: 44px;
@@ -183,6 +189,9 @@ div[class*="clickTrapContainer"] div[role="menu"] {
     }
     .channelAttachmentArea_b77158{
         padding-top:10px;
+    }
+    .form_f75fb0{
+        padding-top:16px; /* add whitespace near the top area */
     }
     .image__44df5{ /* remove enshittified image in announcement channels */
 	    display:none !important;
