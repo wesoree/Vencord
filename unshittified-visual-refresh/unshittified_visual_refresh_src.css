@@ -113,6 +113,7 @@ div[class*="clickTrapContainer"] div[role="menu"] {
 
 /*unfucked search bar for friends list*/
 .searchBar__35e86{
+    border-right:1px solid #29292D;
     & > .button__201d5 {
         padding-left:5px;
         & > .contents__201d5{
