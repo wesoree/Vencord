@@ -162,9 +162,11 @@ div[class*="clickTrapContainer"] div[role="menu"] {
 .hasStackedBar__74017{
     &>.inner__74017{
         padding-left:5px !important;
+        &>.attachWrapper__0923f{
+            margin-left:10px;
+        }
     }
 }
-
 :is(form, form > div) {
 	& > div[class*="channelBottomBarArea"] {
 		--custom-channel-textarea-text-area-height: 44px;
