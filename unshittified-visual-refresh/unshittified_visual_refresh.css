@@ -1,0 +1,135 @@
+/**
+ * @name Deshittified Visual Refresh Source
+ * @version 1.0
+ * @author wesoree
+ * @description Discord visual refresh but without the enshittification from investors
+ */
+
+@import url("https://scattagain.github.io/VencordStuff/css/GuildbarRevert.css");
+
+:root {
+    --custom-app-top-bar-height: 22px; /* Change the height of the top bar */
+}
+
+.visual-refresh div[class^="sidebar_"] section[class^="panels_"] {
+    width: calc(var(--custom-guild-sidebar-width) - var(--custom-guild-list-width) + 1px);
+    left: var(--custom-guild-list-width);
+    bottom: 0px;
+    border-radius: 0px;
+    border: none;
+}
+
+.visual-refresh nav[class*=guilds_] {
+  margin-bottom: unset;
+}
+
+:is(form, form > div) {
+	& > div[class*="channelBottomBarArea"] {
+		--custom-channel-textarea-text-area-height: 44px;
+		margin-left:10px;
+		margin-right:10px;
+		padding-top:5px;
+	}
+	& > [class*="wrapper__"] {
+	    padding: 10px;
+    }
+  & > [class*="wrapper__44df5"]{
+      margin-bottom: 20px !important;
+      padding:5px !important;
+  }
+}
+
+.attachButton__0923f {
+  padding-right:5px !important;
+  padding-left:5px !important;
+}
+
+[class*="sidebarResizeHandle_"] { display: none !important; }
+
+ul[aria-label="Channels"] {
+	li[class*="containerDefault_"]:not([class*="containerDefault__"]) a[class*="link__"] {
+		--radius-sm: 5px;
+	}
+
+	li[class*="containerDefault__"] h3:is([class*="name__"], [class*="header__"]) > div {
+		font-size: 95%;
+		font-weight: 600;
+	    text-transform: uppercase;
+    }
+}
+
+@container style(--\\--hide-server-activity: true) {
+	h3[class*="membersGroup"]:has(svg path[d^="M10.56 1.1c"]) {
+		display: none;
+	}
+
+	:is(div[aria-label="Members"], div[class*="members_"] > div[role="list"][aria-label]) > div:not([class], [role], [aria-label], [aria-role]):has(> div > div[class*="openOnHover"]) {
+		display: none;
+	}
+}
+
+@container style(--\\--hide-user-activity: true) {
+	div[class*="activityPanel_"] { display: none; }
+}
+
+.image__44df5{ /* Discord we don't need your useless follow channel popup */
+	display:none !important;
+}
+
+.channelAppLauncher_e6e74f{
+	display:none !important;
+}
+
+[class^=bar] {
+    padding: unset; /* Force the top bar taking the whole width of the screen */
+    > [class^=title] {
+        position: relative; /* Make the title left aligned as it won't be absolute anymore */
+        padding-left: 8px; /* Make sure the title isn't directly against the edge */
+        > [class^=title] > [class^=icon] {
+            height: 16px; /* Scale the icon down */
+            width: 16px; /* Scale the icon down */
+        }
+    }
+    > [class^=trailing] {
+        gap: unset; /* Make sure there is no space in between the buttons and window buttons */
+        > [class^=recentsIcon] {
+            &:hover {
+                background-color: var(--background-modifier-hover); /* Make the notification button have a correct hover effect */
+                color: var(--interactive-hover); /* Make the notification button have a correct hover effect */
+            }
+            > [class^=button] {
+                height: 16px; /* Scale the icon down */
+                width: 16px; /* Scale the icon down */
+                padding: 3px 12px; /* Make the button take reasonable space */
+                > [class^=iconBadge] {
+                     bottom: 2px; /* Fix the position of the red dot */
+                     right: 11px; /* Fix the position of the red dot */
+                }
+            }
+        }
+        > a[href="https://support.discord.com"] {
+            display: none; /* Discord, we don't need your useless help page... */
+        }
+        > [class^=button]
+        {
+            height: 16px; /* Scale the icon down */
+            width: 16px; /* Scale the icon down */
+            padding: 3px 12px; /* Make the button take reasonable space */
+            &:hover
+            {
+                background-color: var(--background-modifier-hover); /* Make the update button have a correct hover effect */
+                color: var(--interactive-hover); /* Make the update button have a correct hover effect */
+            }
+        }
+        > [class^=winButtons] {
+            gap: unset; /* Make sure there is no space in between the window buttons */
+            > [class^=winButton] {
+                width: calc(var(--custom-app-top-bar-height) * 2); /* Make the buttons take reasonable space */
+            }
+        }
+    }
+}
+
+.gradientBackground__11664{
+    display:none;
+}

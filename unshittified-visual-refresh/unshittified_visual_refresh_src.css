@@ -1,0 +1,254 @@
+/**
+ * @name Unshittified Visual Refresh Source
+ * @version 2.1.1
+ * @author wesoree
+ * @description Discord visual refresh if it was good
+ */
+
+/* unfucked server list*/
+@import url("https://scattagain.github.io/VencordStuff/css/GuildbarRevert.css");
+
+:root {
+    --custom-app-top-bar-height: 22px; /* Change the height of the top bar (reccomended 22 px) */
+}
+/* unfucked user panel */
+.visual-refresh div[class^="sidebar_"] section[class^="panels_"] {
+    width: 241px; /*channel list width + 1*/
+    left: var(--custom-guild-list-width);
+    bottom: 0px;
+    border-radius: 0px;
+    border: none;
+    border-left:1px solid #29292D;
+    .buttons__37e49{
+        gap:1px !important;
+    }
+}
+
+/* unfucked context menu */
+div[class*="clickTrapContainer"] div[role="menu"] {
+    div[role="group"] {
+			padding: 0;
+		}
+    div:is([role="menuitem"],[role="menuitemcheckbox"]), div[class*="hideInteraction_"] {
+			padding-top: 2px;
+            padding-bottom:2px;
+            margin:0px !important;
+    }
+}
+
+/* add whitespace to to the top of the guild list because it drives my OCD mad */
+.tutorialContainer__1f388{
+    padding-top:5px;
+}
+
+/* Remove bottom whitespace */
+.sidebar_c48ade::after{
+    display:none
+}
+
+/* make channel list fixed width + remove whitespace in channel list*/
+[class*="sidebarResizeHandle_"] { display: none !important; }
+.sidebarList_c48ade{
+    width:240px !important;
+    &>.container__2637a{
+        &>.scroller__629e4{
+            margin-bottom:0px !important;
+        }
+    }
+}
+
+/* unfucked convo searching ui */
+.quickswitcher_ac6cb0{
+    &>.input_ac6cb0{
+        height:44px;
+        font-size:14pt;
+    }
+    &>.scroller_ac6cb0 {
+        margin-top:0px;
+    }
+}
+
+.visual-refresh nav[class*=guilds_] {
+  margin-bottom: unset;
+}
+
+/* compact ping/unread bars */
+.mentionsBar__7aaec{
+    padding:5px !important;
+}
+
+.bar__7aaec{
+    padding:2px !important;
+}
+
+.barText__7aaec{
+    padding-right:5px !important;
+    padding-left:5px !important;
+}
+.unreadIcon__7aaec{
+    padding-left:5px !important;
+}
+
+.content__44df5{
+    margin-left:10px !important;
+}
+
+/* unfucked channel icons/title padding */
+
+.subtitleContainer_f75fb0{
+    & > .title_f75fb0{
+        padding-left:5px;
+        & > .upperContainer__9293f{
+            & > .toolbar__9293f{
+                gap: 2px;
+            }
+            & > .children__9293f{
+                padding-right:3px; /* let's make this look a lot less fucking weird */
+                & > .hoverableContainer__754bd {
+                    margin-top:5px !important;
+                }
+            }
+        }
+    }
+}
+
+/*unfucked search bar for friends list*/
+.searchBar__35e86{
+    & > .button__201d5 {
+        padding-left:5px;
+        & > .contents__201d5{
+            margin-left:2px !important;
+        }
+    }
+    
+}
+/* unfucked friends list padding */
+.title__1472a {
+    margin-bottom:5px;
+    margin-top:0px;
+}
+
+/* remove excessive padding disorder */
+.sectionDivider__35e86{
+    margin-top:2px !important;
+}
+
+/* unfucked chat bar */
+:is(form, form > div) {
+	& > div[class*="channelBottomBarArea"] {
+		--custom-channel-textarea-text-area-height: 44px;
+        /* make the margins more consistient with the rest of the app like old discord */
+		margin-left:10px;
+		margin-right:10px;
+	}
+	& > [class*="wrapper__"] {
+	    padding: 10px;
+    }
+    /* announcement channels */
+    & > [class*="wrapper__44df5"]{
+        margin-bottom: 24px !important;
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+        padding:6px !important;
+    }
+    & > [class*="content__44df5"]{
+        margin:5px !important;
+    }
+    .image__44df5{ /* remove enshittified image in announcement channels */
+	    display:none !important;
+    }
+    /*Threads only and Disabled*/
+    .innerDisabled__74017{
+        padding-left:2px !important;
+        &>.attachWrapper__0923f {
+            &>.attachButton__0923f {
+                padding-left:23px !important;
+            }
+        }
+    }
+    /* make app launcher button more distinct from its relatives */
+    .channelAppLauncher_e6e74f{
+        /*display:none !important;*/
+        gap:0px;
+        padding-left:5px !important; 
+    }
+    
+    /* move attach button left and remove excessive padding*/
+    .attachButton__0923f {
+        padding-right:0px !important;
+        padding-left:10px !important;
+    }
+    /* remaining buttons */
+    .buttons__74017{
+        gap: 0px !important;
+    }
+}
+
+/* restore old categories */
+ul[aria-label="Channels"] {
+	li[class*="containerDefault_"]:not([class*="containerDefault__"]) a[class*="link__"] {
+		--radius-sm: 5px;
+	}
+
+	li[class*="containerDefault__"] h3:is([class*="name__"], [class*="header__"]) > div {
+		font-size: 95%;
+		font-weight: 600;
+	    text-transform: uppercase;
+    }
+}
+
+/* unfucked titlebar */
+[class^=bar] {
+    padding: unset; /* Force the top bar taking the whole width of the screen */
+    > [class^=title] {
+        position: relative; /* Make the title left aligned as it won't be absolute anymore */
+        padding-left: 8px; /* Make sure the title isn't directly against the edge */
+        > [class^=title] > [class^=icon] {
+            height: 16px; /* Scale the icon down */
+            width: 16px; /* Scale the icon down */
+        }
+    }
+    > [class^=trailing] {
+        gap: unset; /* Make sure there is no space in between the buttons and window buttons */
+        > [class^=recentsIcon] {
+            &:hover {
+                background-color: var(--background-modifier-hover); /* Make the notification button have a correct hover effect */
+                color: var(--interactive-hover); /* Make the notification button have a correct hover effect */
+            }
+            > [class^=button] {
+                height: 16px; /* Scale the icon down */
+                width: 16px; /* Scale the icon down */
+                padding: 3px 12px; /* Make the button take reasonable space */
+                > [class^=iconBadge] {
+                     bottom: 2px; /* Fix the position of the red dot */
+                     right: 11px; /* Fix the position of the red dot */
+                }
+            }
+        }
+        > a[href="https://support.discord.com"] {
+            display: none; /* Discord, we don't need your useless help page... */
+        }
+        > [class^=button]
+        {
+            height: 16px; /* Scale the icon down */
+            width: 16px; /* Scale the icon down */
+            padding: 3px 12px; /* Make the button take reasonable space */
+            &:hover
+            {
+                background-color: var(--background-modifier-hover); /* Make the update button have a correct hover effect */
+                color: var(--interactive-hover); /* Make the update button have a correct hover effect */
+            }
+        }
+        > [class^=winButtons] {
+            gap: unset; /* Make sure there is no space in between the window buttons */
+            > [class^=winButton] {
+                width: calc(var(--custom-app-top-bar-height) * 2); /* Make the buttons take reasonable space */
+            }
+        }
+    }
+}
+
+/* unfuck the vc background by making it plain */
+.gradientBackground__11664{
+    display:none;
+}
