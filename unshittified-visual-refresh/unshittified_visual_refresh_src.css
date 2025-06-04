@@ -156,6 +156,9 @@ div[class*="clickTrapContainer"] div[role="menu"] {
     border-left:1px solid #29292D;
 }
 /* unfucked chat bar (partially made by abbie) */
+.form_f75fb0{
+    padding-top:16px; /* add whitespace near the top area */
+}
 :is(form, form > div) {
 	& > div[class*="channelBottomBarArea"] {
 		--custom-channel-textarea-text-area-height: 44px;
@@ -180,9 +183,6 @@ div[class*="clickTrapContainer"] div[role="menu"] {
     }
     .channelAttachmentArea_b77158{
         padding-top:10px;
-    }
-    .form_f75fb0{
-        padding-top:16px; /* add whitespace near the top area */
     }
     .image__44df5{ /* remove enshittified image in announcement channels */
 	    display:none !important;
