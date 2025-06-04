@@ -147,7 +147,10 @@ div[class*="clickTrapContainer"] div[role="menu"] {
 .sectionDivider__35e86{
     margin-top:2px !important;
 }
-
+/*unfucked discover tab*/
+.container_a592e1{
+    border-left:1px solid #29292D;
+}
 /* unfucked chat bar (partially made by abbie) */
 :is(form, form > div) {
 	& > div[class*="channelBottomBarArea"] {
