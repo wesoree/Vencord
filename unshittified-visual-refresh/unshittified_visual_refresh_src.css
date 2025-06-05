@@ -204,7 +204,7 @@ div[class*="clickTrapContainer"] div[role="menu"] {
         &>.attachWrapper__0923f {
             &>.attachButton__0923f {
                 padding-left:0px !important;
-                margin-left:13px !important;
+                margin-left:10px !important;
             }
         }
     }
@@ -219,7 +219,7 @@ div[class*="clickTrapContainer"] div[role="menu"] {
     .attachButton__0923f {
         padding-right:0px !important;
         padding-left:0px !important;
-        margin-left:0px !important;
+        margin-left:-3px !important;
     }
     /* remaining buttons */
     .buttons__74017{
