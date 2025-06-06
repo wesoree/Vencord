@@ -1,6 +1,6 @@
 /**
  * @name Unshittified VR Source
- * @version 2.2.0
+ * @version 2.2.1
  * @author wesoree,abbie,evie,scatt,Julienraptor01
  * @description unshittified visual refresh source
  */
@@ -275,7 +275,7 @@ span[class*="timestampInline_"] {
     > [class^=trailing] {
         gap: unset; /* Make sure there is no space in between the buttons and window buttons */
         > [class^=recentsIcon] {
-            position:absolute;
+            position:absolute;/*move to topbar and off of titlebar like old discord*/
             margin-top: 80px !important;
             margin-right:10px !important;
             &>.button__85643{
@@ -301,7 +301,7 @@ span[class*="timestampInline_"] {
         > [class^=winButtons] {
             gap: unset; /* Make sure there is no space in between the window buttons */
             > [class^=winButton] {
-                width: calc(var(--custom-app-top-bar-height) * 2); /* Make the buttons take reasonable space */
+                width: 25px; /* Make the buttons take reasonable space */
             }
         }
     }
