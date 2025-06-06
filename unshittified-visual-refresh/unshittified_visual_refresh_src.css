@@ -1,6 +1,6 @@
 /**
  * @name Unshittified VR Source
- * @version 2.1.4
+ * @version 2.2.0
  * @author wesoree,abbie,evie,scatt,Julienraptor01
  * @description unshittified visual refresh source
  */
@@ -22,6 +22,7 @@
         gap:1px !important;
     }
 }
+
 
 .scrollerSpacer__36d07{
     height:4px !important;
@@ -109,10 +110,18 @@ div[class*="clickTrapContainer"] div[role="menu"] {
 
 .subtitleContainer_f75fb0{
     & > .title_f75fb0{
+        padding-right:44px !important;
         padding-left:5px;
         & > .upperContainer__9293f{
             & > .toolbar__9293f{
                 gap: 2px;
+                &>.search__49676{
+                    &>.search__97492{
+                        &>.searchBar__97492{
+                            width:210px !important;
+                        }
+                    }
+                }
             }
             & > .children__9293f{
                 padding-right:3px; /* let's make this look a lot less fucking weird */
@@ -189,6 +198,9 @@ div[class*="clickTrapContainer"] div[role="menu"] {
         margin-bottom:5px !important;
         margin-left:6px !important;
     }
+    .buttonContainer__44df5{
+        margin-right:0px;
+    }
     .channelAttachmentArea_b77158{
         padding-top:10px;
     }
@@ -239,8 +251,17 @@ ul[aria-label="Channels"] {
 	    text-transform: uppercase;
     }
 }
+/*unfucked timestamp*/
+span[class*="timestampInline_"] time::before {
+  content: attr(aria-label);
+  font-size: 12px;
+}
 
-/* unfucked titlebar by Julienraptor01 */
+span[class*="timestampInline_"] {
+  font-size: 0px !important;
+}
+
+/* unfucked titlebar by Julienraptor01 with few modifications */
 [class^=bar] {
     padding: unset; /* Force the top bar taking the whole width of the screen */
     > [class^=title] {
@@ -254,18 +275,13 @@ ul[aria-label="Channels"] {
     > [class^=trailing] {
         gap: unset; /* Make sure there is no space in between the buttons and window buttons */
         > [class^=recentsIcon] {
-            &:hover {
-                background-color: var(--background-modifier-hover); /* Make the notification button have a correct hover effect */
-                color: var(--interactive-hover); /* Make the notification button have a correct hover effect */
-            }
-            > [class^=button] {
-                height: 16px; /* Scale the icon down */
-                width: 16px; /* Scale the icon down */
-                padding: 3px 12px; /* Make the button take reasonable space */
-                > [class^=iconBadge] {
-                     bottom: 2px; /* Fix the position of the red dot */
-                     right: 11px; /* Fix the position of the red dot */
-                }
+            position:absolute;
+            margin-top: 80px !important;
+            margin-right:10px !important;
+            &>.button__85643{
+                padding:unset !important;
+                height:32px !important;
+                width:32px !important;
             }
         }
         > a[href="https://support.discord.com"] {
@@ -289,6 +305,10 @@ ul[aria-label="Channels"] {
             }
         }
     }
+
+}
+.bar_c38106 .trailing_c38106 {
+		z-index: 102;
 }
 
 /* unfuck the vc background by making it plain */
