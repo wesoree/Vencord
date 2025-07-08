@@ -6,3 +6,14 @@
  */
 
 @import url("https://wesoree.github.io/Vencord/unshittified-visual-refresh/unshittified_visual_refresh_src.css");
+
+:root {
+    --custom-app-top-bar-height: 22px; /* Change the height of the top bar (reccomended 22 px) */
+    --disable-activity-status: false;
+    --resizable-sidebar:false; /*set this to false to emulate old discord*/
+    --hide-titlebar:false;
+    --unfuck-chatbar:true;
+
+    /*deps (DO NOT CHANGE)*/
+    --blurple:#5865F2;
+}
