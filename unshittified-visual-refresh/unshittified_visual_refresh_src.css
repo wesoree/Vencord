@@ -1,7 +1,7 @@
 /**
  * @name Unshittified VR Source
- * @version 2.2.1
- * @author wesoree,abbie,evie,scatt,Julienraptor01
+ * @version 2.4.1
+ * @author wesoree,abbie,evie,scatt,Julienraptor01,millbits
  * @description unshittified visual refresh source
  */
 /* scatt's unfucked server list */
@@ -9,20 +9,163 @@
 
 :root {
     --custom-app-top-bar-height: 22px; /* Change the height of the top bar (reccomended 22 px) */
+    --disable-activity-status: false;
+    --resizable-sidebar:false; /*set this to false to emulate old discord*/
+    --hide-titlebar:false;
+    --unfuck-chatbar:true;
+
+    /*deps (DO NOT CHANGE)*/
+    --blurple:#5865F2;
 }
-/* unfucked user panel by evie */
-.visual-refresh div[class^="sidebar_"] section[class^="panels_"] {
-    width: 241px; /*channel list width + 1*/
-    left: var(--custom-guild-list-width);
-    bottom: 0px;
-    border-radius: 0px;
-    border: none;
-    border-left:1px solid #29292D;
-    .buttons__37e49{
-        gap:1px !important;
+/* unfucked titlebar by Julienraptor01 and oldcord devs with few modifications and now with browser/linux support */
+.platform-web:not(html[data-dorion-platform="linux"]),
+.platform-linux {
+	.base_c48ade {
+		grid-template-areas: "titleBar titleBar titleBar" "notice notice notice" "guildsList channelsList page";
+		grid-template-rows: [top] 0px [titlebarEnd] min-content [page] 0px [end] !important;
+	}
+	.bar_c38106 .title_c38106 {
+		display: none;
+	}
+	.bar_c38106 .trailing_c38106 {
+		top: 18px !important;
+	}
+	.scroller_ef3116 {
+		padding-top: 12px !important;
+	}
+	.notice__6e2b9,
+	#bd-notices {
+		margin-top: 0px !important;
+	}
+	.base_c48ade:has(.notice__6e2b9, .bd-notice) .bar_c38106 .trailing_c38106 {
+		top: 69px !important;
+	}
+    a[href="https://support.discord.com"] {
+        display: none; /*help page support never existed :3 */
     }
 }
 
+/*windows support*/
+html.platform-win{
+    [class^=bar] {
+        padding: unset; /* Force the top bar taking the whole width of the screen */
+        > [class^=title] {
+            position: relative; /* Make the title left aligned as it won't be absolute anymore */
+            padding-left: 8px; /* Make sure the title isn't directly against the edge */
+            > [class^=title] > [class^=icon] {
+                height: 16px; /* Scale the icon down */
+                width: 16px; /* Scale the icon down */
+            }
+        }
+        > [class^=trailing] {
+            gap: unset; /* Make sure there is no space in between the buttons and window buttons */
+            > [class^=recentsIcon] {
+                position:absolute;/*move to topbar and off of titlebar like old discord*/
+                margin-top: 80px !important;
+                margin-right:10px !important;
+                &>.button__85643{
+                    padding:unset !important;
+                    height:32px !important;
+                    width:32px !important;
+                }
+            }
+            > a[href="https://support.discord.com"] {
+                display: none; /* Discord, we don't need your useless help page... */
+            }
+            > [class^=button]
+            {
+                height: 16px; /* Scale the icon down */
+                width: 16px; /* Scale the icon down */
+                padding: 3px 12px; /* Make the button take reasonable space */
+                &:hover
+                {
+                    background-color: var(--background-modifier-hover); /* Make the update button have a correct hover effect */
+                    color: var(--interactive-hover); /* Make the update button have a correct hover effect */
+                }
+            }
+            > [class^=winButtons] {
+                gap: unset; /* Make sure there is no space in between the window buttons */
+                > [class^=winButton] {
+                    width: 25px; /* Make the buttons take reasonable space */
+                }
+            }
+        }
+
+    }
+    .notice__6e2b9,
+	#bd-notices {
+		box-shadow: var(--elevation-low);
+		margin-top: 22px;
+		margin-bottom: -38px;
+		grid-area: channelsList / channelsList / channelsList / page;
+	}
+	.base_c48ade:has(.notice__6e2b9, .bd-notice) .trailing_c38106 {
+		top: 89px;
+		.winButtons_c38106 {
+			bottom: 73px;
+		}
+	}
+	.base_c48ade:has(.notice__6e2b9, .bd-notice) :is(.sidebarList_c48ade, .page_c48ade) {
+		margin-top: 37px;
+	}
+	.page_c48ade {
+		height: auto;
+	}
+
+	.section__00943 {
+		background: #2f3136;
+	}
+
+}
+.bar_c38106 .trailing_c38106 {
+		z-index: 102;
+}
+/* make channel list fixed width + remove whitespace in channel list*/
+@container style(--resizable-sidebar:false){
+    [class*="sidebarResizeHandle_"] { display: none !important; }
+    .sidebarList_c48ade{
+        width:240px !important;
+        &>.container__2637a{
+            &>.scroller__629e4{
+                margin-bottom:0px !important;
+            }
+        }
+    }
+    /* unfucked user panel by evie (with a few modifications) */
+    .visual-refresh div[class^="sidebar_"] section[class^="panels_"] {    
+        width: 241px; /*channel list width + 1*/
+        left: var(--custom-guild-list-width);
+        margin-top:0px;
+        bottom: 0px;
+        border-radius: 0px;
+        border: none;
+        border-left:1px solid #29292D;
+        .buttons__37e49{
+            gap:1px !important;
+        }
+    }
+}
+
+@container style(--resizable-sidebar:true){
+    .visual-refresh div[class^="sidebar_"] section[class^="panels_"] {
+        width: calc(var(--custom-guild-sidebar-width) - var(--custom-guild-list-width) + 1px);
+        left: var(--custom-guild-list-width);
+        bottom: 0px;
+        border-radius: 0px;
+        border: none;
+        border-left:1px solid #29292D;
+        .buttons__37e49{
+            gap:1px !important;
+        }
+    }
+}
+
+
+/*unfucked unread messages bar*/
+.newMessagesBar__0f481{
+    padding-left:12px;
+    padding-right:12px;
+}
 
 .scrollerSpacer__36d07{
     height:4px !important;
@@ -51,17 +194,6 @@ div[class*="clickTrapContainer"] div[role="menu"] {
 /* Remove bottom whitespace */
 .sidebar_c48ade::after{
     display:none
-}
-
-/* make channel list fixed width + remove whitespace in channel list*/
-[class*="sidebarResizeHandle_"] { display: none !important; }
-.sidebarList_c48ade{
-    width:240px !important;
-    &>.container__2637a{
-        &>.scroller__629e4{
-            margin-bottom:0px !important;
-        }
-    }
 }
 
 /* unfucked convo searching ui */
@@ -136,6 +268,81 @@ div[class*="clickTrapContainer"] div[role="menu"] {
     }
 }
 
+.messagesWrapper__36d07 {
+    margin-bottom:16px;
+}
+
+/*unfucked jump to present bar (some code was yoinked from oldcord)*/
+.jumpToPresentBar__0f481 {
+    align-items: center;
+    opacity: 0.95 !important;
+    margin-bottom: -20px !important;
+    padding:unset;
+    margin-left:2px !important;
+    bottom: -5;
+    border-radius: 8px 8px 8px 8px;
+    width: 100%;
+    height:32px;
+    background-color: var(--blurple);
+    padding-bottom:4px;
+    color:white;
+    &:hover{
+        opacity:1 !important;
+    }
+
+    &>.barButtonMain__0f481{
+        padding-left:unset;
+        padding:0 12px !important;
+    }
+    &>.lookFilled__201d5 {
+        align-content:flex-start;
+        flex:0 0 auto;
+        background:unset;
+        border:0px;
+        height:18px !important;
+        padding: unset;
+        padding-right:12px;
+        padding-bottom:3px;
+        &:hover{
+            background-color: unset;
+        }
+        .contents__201d5:after {
+					content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 16'%3E%3Cpath d='M7 10L12 15 17 10'%3E%3C/path%3E%3C/svg%3E");
+					margin-left: 8px;
+        
+        }
+    }
+}
+.bottomBar__0f481 {
+			border: unset;
+			padding: unset;
+			left: unset;
+			right: unset;
+			margin: unset;
+			width: unset;
+			min-width: unset;
+			box-shadow: unset;
+			min-height: unset;
+			box-sizing: unset;
+		}
+	
+		.barBase__0f481 {
+			left: 16px;
+			right: 16px;
+			min-height: 24px;
+			opacity: 0.95;
+			border: unset;
+		}
+	
+		.embedFull__623de {
+			border-top: unset;
+			border-right: unset;
+			border-bottom: unset;
+		}
+		.sensitivity_ac7648 {
+			min-height: 0px;
+		}
+
 /*unfucked search bar for friends list*/
 .searchBar__35e86{
     & > .button__201d5 {
@@ -158,24 +365,75 @@ div[class*="clickTrapContainer"] div[role="menu"] {
     margin-bottom:5px;
     margin-top:0px;
 }
-
+/*unfucked friends and whatnot navigation (because inbox overlaps it)*/
+.container__9293f.themed__9293f{
+    padding-right:35px;
+}
 /* remove excessive padding disorder */
 .sectionDivider__35e86{
     margin-top:2px !important;
+}
+.title_f75fb0{
+    padding-left:10px !important;
 }
 /*unfucked discover tab*/
 .container_a592e1{
     border-left:1px solid #29292D;
 }
 /* unfucked chat bar (partially made by abbie) */
-.form_f75fb0{
-    padding-top:16px; /* add whitespace near the top area */
+.stackedBars__74017{
+    &>div{
+        &>.clipContainer__841c8{
+            padding:unset;
+            &>.container__841c8{
+                &>.replyBar__841c8{
+                    &>.actions__841c8{
+                        margin-right:2px;
+                        & > [role="switch"]{
+                            .mentionButton__841c8{
+                                padding:6px;
+                            }
+                        }
+                        &>.closeButton_e876a8{
+                            padding:6px;
+                        }
+                    }
+                }
+            }
+        }
+        &>.bar__84522{
+            &>.commandInfo__84522{
+                &>.name__84522{
+                    padding-left:10px;
+                }
+            }
+            &>.actions__84522{
+                margin-right:2px !important;
+                &>.closeButton_e876a8{
+                    padding:6px !important;
+                }
+            }
+        }
+        
+    }
+}
+.replyLabel__841c8{
+    margin-left:10px !important;
 }
 .hasStackedBar__74017{
     &>.inner__74017{
         padding-left:5px !important;
         &>.attachWrapper__0923f{
             margin-left:10px;
+        }
+    }
+    
+}
+section[aria-label="Thread header"]{
+    padding-right:44px;
+    &>.upperContainer__9293f{
+        &>.toolbar__9293f{
+            gap:2px;
         }
     }
 }
@@ -207,9 +465,6 @@ div[class*="clickTrapContainer"] div[role="menu"] {
     .channelAttachmentArea_b77158{
         padding-top:10px;
     }
-    .form_f75fb0{
-        padding-top:16px; /* add whitespace near the top area */
-    }
     .image__44df5{ /* remove enshittified image in announcement channels */
 	    display:none !important;
     }
@@ -220,6 +475,7 @@ div[class*="clickTrapContainer"] div[role="menu"] {
             &>.attachButton__0923f {
                 padding-left:0px !important;
                 margin-left:10px !important;
+                margin-right:0px;
             }
         }
     }
@@ -232,14 +488,32 @@ div[class*="clickTrapContainer"] div[role="menu"] {
     
     /* move attach button left and remove excessive padding*/
     .attachButton__0923f {
-        padding-right:0px !important;
-        padding-left:0px !important;
+        padding-right:unset;
+        padding-left:unset;
         margin-left:-3px !important;
+        margin-right:unset;
+    }
+    .attachButton__74017{
+        &>.icon__4d3a9{
+            padding:unset;
+            margin-left:18px;
+            margin-top:10px;
+            margin-bottom:10px;
+        }
     }
     /* remaining buttons */
     .buttons__74017{
         gap: 0px !important;
     }
+    .textArea__74017 {
+        margin-left:8px;
+    }
+    
+}
+
+/*forums*/
+.formContainer_d9be46{
+    padding-bottom:5px;
 }
 
 /* restore old categories by abbie */
@@ -264,57 +538,22 @@ span[class*="timestampInline_"] {
   font-size: 0px !important;
 }
 
-/* unfucked titlebar by Julienraptor01 with few modifications */
-[class^=bar] {
-    padding: unset; /* Force the top bar taking the whole width of the screen */
-    > [class^=title] {
-        position: relative; /* Make the title left aligned as it won't be absolute anymore */
-        padding-left: 8px; /* Make sure the title isn't directly against the edge */
-        > [class^=title] > [class^=icon] {
-            height: 16px; /* Scale the icon down */
-            width: 16px; /* Scale the icon down */
-        }
-    }
-    > [class^=trailing] {
-        gap: unset; /* Make sure there is no space in between the buttons and window buttons */
-        > [class^=recentsIcon] {
-            position:absolute;/*move to topbar and off of titlebar like old discord*/
-            margin-top: 80px !important;
-            margin-right:10px !important;
-            &>.button__85643{
-                padding:unset !important;
-                height:32px !important;
-                width:32px !important;
-            }
-        }
-        > a[href="https://support.discord.com"] {
-            display: none; /* Discord, we don't need your useless help page... */
-        }
-        > [class^=button]
-        {
-            height: 16px; /* Scale the icon down */
-            width: 16px; /* Scale the icon down */
-            padding: 3px 12px; /* Make the button take reasonable space */
-            &:hover
-            {
-                background-color: var(--background-modifier-hover); /* Make the update button have a correct hover effect */
-                color: var(--interactive-hover); /* Make the update button have a correct hover effect */
-            }
-        }
-        > [class^=winButtons] {
-            gap: unset; /* Make sure there is no space in between the window buttons */
-            > [class^=winButton] {
-                width: 25px; /* Make the buttons take reasonable space */
-            }
-        }
-    }
-
-}
-.bar_c38106 .trailing_c38106 {
-		z-index: 102;
-}
-
 /* unfuck the vc background by making it plain */
-.gradientBackground__11664{
+.pulseGradient__11664{
     display:none;
+}
+
+.videoControls_bfe55a{
+    &>.topControls_bfe55a{
+        &>div{
+            &>.headerWrapper_cb9592{
+                &>.subtitleContainer__49508{
+                    &>.container__9293f{
+                        padding-left:10px;
+                    }
+                    padding-right:20px;
+                }
+            }
+        }
+    }
 }
