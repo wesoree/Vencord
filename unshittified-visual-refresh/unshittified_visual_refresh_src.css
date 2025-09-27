@@ -446,12 +446,15 @@ section[aria-label="Thread header"]{
     }
     /*Threads only and Disabled*/
     .innerDisabled__74017{
-        padding-left:2px !important;
-        &>.attachWrapper__0923f {
+        padding-left:5px !important;
+        &>.attachWrapper__0923f{
+            margin-left:5px;
+            margin-top:16px;
+            margin-bottom:unset;
+            padding-top:unset;
+            padding-bottom:unset;
             &>.attachButton__0923f {
-                padding-left:0px !important;
-                margin-left:10px !important;
-                margin-right:0px;
+                margin-top:unset;
             }
         }
     }
