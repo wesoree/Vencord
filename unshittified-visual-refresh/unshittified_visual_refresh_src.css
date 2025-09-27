@@ -1,7 +1,7 @@
 /**
  * @name Unshittified VR Source
- * @version 2.4.2
- * @author wesoree,abbie,evie,scatt,Julienraptor01,millbits
+ * @version 2.5.1
+ * @author wesoree
  * @description unshittified visual refresh source
  */
 /* scatt's unfucked server list */
@@ -12,7 +12,6 @@
     --disable-activity-status: false;
     --resizable-sidebar:false; /*set this to false to emulate old discord*/
     --hide-titlebar:false;
-    --unfuck-chatbar:true;
 
     /*deps (DO NOT CHANGE)*/
     --blurple:#5865F2;
@@ -49,17 +48,29 @@
 html.platform-win{
     [class^=bar] {
         padding: unset; /* Force the top bar taking the whole width of the screen */
+        gap:unset;
         > [class^=title] {
-            position: relative; /* Make the title left aligned as it won't be absolute anymore */
-            padding-left: 8px; /* Make sure the title isn't directly against the edge */
-            > [class^=title] > [class^=icon] {
-                height: 16px; /* Scale the icon down */
-                width: 16px; /* Scale the icon down */
+            gap:0;
+            position: absolute; /* Make the title left aligned */
+            right:unset;
+            padding-left:8px;
+            > [class^=title]{
+                gap:0px;
+                > [class^=defaultColor]{
+                    font-weight: bolder;
+                    color:#9B9CA3;
+                }
+                &>svg{
+                  display:none;  
+                }
+                > [class^=icon] {
+                    display:none
+                }
             }
         }
         > [class^=trailing] {
             gap: unset; /* Make sure there is no space in between the buttons and window buttons */
-            > [class^=recentsIcon] {
+            > [class^=clickable] {
                 position:absolute;/*move to topbar and off of titlebar like old discord*/
                 margin-top: 80px !important;
                 margin-right:10px !important;
@@ -144,6 +155,9 @@ html.platform-win{
             gap:1px !important;
         }
     }
+    .bannerImg_f37cb1{
+        width:241px;
+    }
 }
 
 @container style(--resizable-sidebar:true){
@@ -170,6 +184,9 @@ html.platform-win{
 	}
 }
 
+.headerBar__8a7fc,.overlay__8a7fc{
+    padding-right:44px !important;
+}
 
 /*unfucked unread messages bar*/
 .newMessagesBar__0f481{
@@ -192,12 +209,15 @@ div[class*="clickTrapContainer"] div[role="menu"] {
             margin:0px !important;
     }
 }
+.activityPanel_c48ade{
+    border-radius:0;
+}
 
 /* add whitespace to to the top of the guild list because it drives my OCD mad */
 .tutorialContainer__1f388{
     margin-top:2px;
     &>.listItem__650eb{
-        margin-bottom:6px !important;
+        margin-bottom:unset !important;
     }
 }
 
@@ -283,75 +303,14 @@ div[class*="clickTrapContainer"] div[role="menu"] {
 }
 
 /*unfucked jump to present bar (some code was yoinked from oldcord)*/
-.jumpToPresentBar__0f481 {
-    align-items: center;
-    opacity: 0.95 !important;
-    margin-bottom: -20px !important;
-    padding:unset;
-    margin-left:2px !important;
-    bottom: -5;
-    border-radius: 8px 8px 8px 8px;
-    width: 100%;
-    height:32px;
-    background-color: var(--blurple);
-    padding-bottom:4px;
-    color:white;
-    &:hover{
-        opacity:1 !important;
-    }
 
-    &>.barButtonMain__0f481{
-        padding-left:unset;
-        padding:0 12px !important;
-    }
-    &>.lookFilled__201d5 {
-        align-content:flex-start;
-        flex:0 0 auto;
-        background:unset;
-        border:0px;
-        height:18px !important;
-        padding: unset;
-        padding-right:12px;
-        padding-bottom:3px;
-        &:hover{
-            background-color: unset;
-        }
-        .contents__201d5:after {
-					content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 16'%3E%3Cpath d='M7 10L12 15 17 10'%3E%3C/path%3E%3C/svg%3E");
-					margin-left: 8px;
-        
-        }
+.jumpToPresentBar__0f481 {
+    margin-bottom:-8px;
+    &>.barButtonMain__0f481 {
+        margin-right:1em;
     }
 }
-.bottomBar__0f481 {
-			border: unset;
-			padding: unset;
-			left: unset;
-			right: unset;
-			margin: unset;
-			width: unset;
-			min-width: unset;
-			box-shadow: unset;
-			min-height: unset;
-			box-sizing: unset;
-		}
-	
-		.barBase__0f481 {
-			left: 16px;
-			right: 16px;
-			min-height: 24px;
-			opacity: 0.95;
-			border: unset;
-		}
-	
-		.embedFull__623de {
-			border-top: unset;
-			border-right: unset;
-			border-bottom: unset;
-		}
-		.sensitivity_ac7648 {
-			min-height: 0px;
-		}
+
 
 /*unfucked search bar for friends list*/
 .searchBar__35e86{
@@ -430,17 +389,24 @@ div[class*="clickTrapContainer"] div[role="menu"] {
 .replyLabel__841c8{
     margin-left:10px !important;
 }
-.hasStackedBar__74017{
+.scrollableContainer__74017 {
     &>.inner__74017{
         padding-left:5px !important;
         &>.attachWrapper__0923f{
-            margin-left:10px;
+            margin-left:5px;
+            margin-top:16px;
+            margin-bottom:unset;
+            padding-top:unset;
+            padding-bottom:unset;
+            &>.attachButton__0923f {
+                margin-top:unset;
+            }
         }
     }
     
 }
 section[aria-label="Thread header"]{
-    padding-right:44px;
+    padding-right:44px !important;
     &>.upperContainer__9293f{
         &>.toolbar__9293f{
             gap:2px;
@@ -459,7 +425,7 @@ section[aria-label="Thread header"]{
     }
     /* announcement channels */
     & > [class*="wrapper__44df5"]{
-        margin-bottom: 24px !important;
+        margin-bottom:8px;
         margin-left: 10px !important;
         margin-right: 10px !important;
         padding:6px !important;
@@ -566,4 +532,69 @@ span[class*="timestampInline_"] {
             }
         }
     }
+}
+
+.container__34c2c{
+    &>.buttons__34c2c{
+        gap:4px;
+        &>.button__34c2c{
+            padding:0;
+        }
+    }
+}
+
+.divider_ee23ac{
+    margin-bottom:8px;
+}
+
+/*unfucked forums bar*/
+.formContainer_d9be46{
+    padding-bottom:unset; 
+    &>.form_d9be46{
+        margin:unset;
+        &>.bodyContainer_d9be46{
+            &>.contentContainer_d9be46{
+                &>div{
+                    &>.channelTextArea_d9be46 {
+                        border:0;
+                        &>.channelTextAreaInner_d9be46 {
+                            &>.inner__74017 {
+                                &>.textArea__74017 {
+                                    margin:unset;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*unfucked boost bar (cannot remove the excessive whitespace on the top so I'll have to work around it*/
+/*
+.container__0d0f9{
+    .contentContainer__0d0f9{
+        .progressContainer__0d0f9{
+            height:10px;
+
+        }
+        .textContainer__0d0f9{
+            position:absolute;
+            margin-bottom:4px;
+            &>.textContentContainer__0d0f9{
+                margin-bottom:32px;
+            }
+        }
+    }
+}*/
+
+/* Fix for the bottom aligned chatbar experiment. */ 
+.attachButton__0923f.attachButton__74017.button__24af7 {
+    height: 10px;
+    width: 10px;
+    margin-top: 7.5px;
+}
+.scrollerSpacer__36d07 {
+    height: 25px !important;
 }
