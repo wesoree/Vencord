@@ -1,6 +1,6 @@
 /**
  * @name Unshittified VR Source
- * @version 2.5.2
+ * @version 2.5.1
  * @author wesoree
  * @description unshittified visual refresh source
  */
@@ -428,7 +428,11 @@ div[class*="clickTrapContainer"] div[role="menu"] {
                 margin-top:unset;
             }
         }
+        .textArea__74017 {
+                    padding-left:12px;
+        }
     }
+    
     
 }
 section[aria-label="Thread header"]{
