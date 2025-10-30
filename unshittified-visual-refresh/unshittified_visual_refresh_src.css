@@ -428,13 +428,19 @@ div[class*="clickTrapContainer"] div[role="menu"] {
                 margin-top:unset;
             }
         }
-        .textArea__74017 {
-                    padding-left:12px;
-        }
     }
     
     
 }
+.channelTextArea__5126c {
+            &>.scrollableContainer__74017 {
+                &>.inner__74017{
+                    &>.textArea__74017 {
+                        padding-left:12px;
+                    }
+                }
+            }
+        }
 section[aria-label="Thread header"]{
     padding-right:44px !important;
     &>.upperContainer__9293f{
