@@ -1,6 +1,6 @@
 /**
  * @name Unshittified VR Source
- * @version 2.5.1
+ * @version 2.5.2
  * @author wesoree
  * @description unshittified visual refresh source
  */
@@ -134,7 +134,7 @@ html.platform-win{
 /* make channel list fixed width + remove whitespace in channel list*/
 @container style(--resizable-sidebar:false){
     [class*="sidebarResizeHandle_"] { display: none !important; }
-    .sidebarList_c48ade{
+    .sidebarList__5e434 {
         width:240px !important;
         &>.container__2637a{
             &>.scroller__629e4{
@@ -155,6 +155,19 @@ html.platform-win{
             gap:1px !important;
         }
     }
+    .container__37e49{
+        gap:1px !important;
+        &>.buttons__37e49{
+            &>div{
+                &>.button__67645 {
+                    border-radius:8px;
+                }
+                &>.buttonChevron__37e49 {
+                    display:none;
+                }
+            }
+        }
+    }
     .bannerImg_f37cb1{
         width:241px;
     }
@@ -170,6 +183,19 @@ html.platform-win{
         border-left:1px solid #29292D;
         .buttons__37e49{
             gap:1px !important;
+        }
+    }
+    .container__37e49{
+        gap:1px !important;
+        &>.buttons__37e49{
+            &>div{
+                &>.button__67645 {
+                    border-radius:8px;
+                }
+                &>.buttonChevron__37e49 {
+                    display:none;
+                }
+            }
         }
     }
 }
@@ -506,15 +532,6 @@ ul[aria-label="Channels"] {
 		font-weight: 600;
 	    text-transform: uppercase;
     }
-}
-/*unfucked timestamp*/
-span[class*="timestampInline_"] time::before {
-  content: attr(aria-label);
-  font-size: 12px;
-}
-
-span[class*="timestampInline_"] {
-  font-size: 0px !important;
 }
 
 /* unfuck the vc background by making it plain */
