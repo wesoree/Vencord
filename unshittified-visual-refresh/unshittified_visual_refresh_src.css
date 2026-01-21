@@ -7,6 +7,7 @@
 /* scatt's unfucked server list */
 @import url("https://scattagain.github.io/VencordStuff/css/GuildbarRevert.css");
 
+
 :root {
     --custom-app-top-bar-height: 22px; /* Change the height of the top bar (reccomended 22 px) */
     --disable-activity-status: false;
@@ -46,17 +47,17 @@
 
 /*windows support*/
 html.platform-win{
-    [class^=bar] {
+    [class^=c38106a3f0c3ca76-bar] {
         padding: unset; /* Force the top bar taking the whole width of the screen */
         gap:unset;
-        > [class^=title] {
+        > [class^=c38106a3f0c3ca76-title] {
             gap:0;
             position: absolute; /* Make the title left aligned */
             right:unset;
             padding-left:8px;
-            > [class^=title]{
+            > [class^=edbb22df99c39831-title]{
                 gap:0px;
-                > [class^=defaultColor]{
+                > [class^=_4bd5201c86a2042b-defaultColor]{
                     font-weight: bolder;
                     color:#9B9CA3;
                 }
@@ -67,19 +68,17 @@ html.platform-win{
                     display:none
                 }
             }
-        }
-        > [class^=trailing] {
-            gap: unset; /* Make sure there is no space in between the buttons and window buttons */
-            > [class^=clickable] {
-                position:absolute;/*move to topbar and off of titlebar like old discord*/
-                margin-top: 80px !important;
-                margin-right:10px !important;
-                &>.button__85643{
-                    padding:unset !important;
-                    height:32px !important;
-                    width:32px !important;
-                }
+            .f34534e8a5d3ca64-icon{
+                display:none !important;
             }
+        }
+        > [class^=c38106a3f0c3ca76-trailing] {
+            gap: unset; /* Make sure there is no space in between the buttons and window buttons */
+            /*> [aria-label="Inbox"] {
+                position:absolute;
+                margin-top: 0px !important;
+
+            }*/
             > a[href="https://support.discord.com"] {
                 display: none; /* Discord, we don't need your useless help page... */
             }
@@ -100,6 +99,7 @@ html.platform-win{
                     width: 25px; /* Make the buttons take reasonable space */
                 }
             }
+            
         }
 
     }
@@ -131,10 +131,13 @@ html.platform-win{
 .bar_c38106 .trailing_c38106 {
 		z-index: 102;
 }
+.ef3116c2da186559-wrapper{
+    margin-bottom:unset;
+}
 /* make channel list fixed width + remove whitespace in channel list*/
 @container style(--resizable-sidebar:false){
-    [class*="sidebarResizeHandle_"] { display: none !important; }
-    .sidebarList__5e434 {
+    [class*="_5e434347c823b592-sidebarResizeHandle"] { display: none !important; }
+    ._5e434347c823b592-sidebarList {
         width:240px !important;
         &>.container__2637a{
             &>.scroller__629e4{
@@ -143,7 +146,7 @@ html.platform-win{
         }
     }
     /* unfucked user panel by evie (with a few modifications) */
-    .visual-refresh div[class^="sidebar_"] section[class^="panels_"] {    
+    .visual-refresh div[class^="_5e434347c823b592-sidebar"] section[class^="_5e434347c823b592-panels"] {    
         width: 241px; /*channel list width + 1*/
         left: var(--custom-guild-list-width);
         margin-top:0px;
@@ -151,21 +154,17 @@ html.platform-win{
         border-radius: 0px;
         border: none;
         border-left:1px solid #29292D;
-        .buttons__37e49{
+        ._37e49614b9f110a9-buttons{
             gap:1px !important;
-        }
-    }
-    .container__37e49{
-        gap:1px !important;
-        &>.buttons__37e49{
-            &>div{
-                &>.button__67645 {
+            &>._37e49614b9f110a9-micButtonParent {
+                    &>._67645e1530f1195d-button{
                     border-radius:8px;
                 }
-                &>.buttonChevron__37e49 {
-                    display:none;
+                    &>._37e49614b9f110a9-buttonChevron {
+                    display:none !important;
                 }
-            }
+                }
+                
         }
     }
     .bannerImg_f37cb1{
@@ -299,22 +298,21 @@ div[class*="clickTrapContainer"] div[role="menu"] {
 
 /* unfucked channel icons/title padding */
 
-.subtitleContainer_f75fb0{
-    & > .title_f75fb0{
-        padding-right:44px !important;
-        padding-left:5px;
-        & > .upperContainer__9293f{
-            & > .toolbar__9293f{
+.f75fb00fb7356cbe-subtitleContainer{
+    & > .f75fb00fb7356cbe-title{
+        /*padding-right:44px !important;*/ /*temp commented out while i work on a fix to get the inbox button back to old position*/
+        & > ._9293f6b2fc12398a-upperContainer{
+            & > ._9293f6b2fc12398a-toolbar{
                 gap: 2px;
-                &>.search__49676{
-                    &>.search__97492{
-                        &>.searchBar__97492{
+                &>._496769951eb140fe-search{
+                    &>._974928fe84ca9647-search{
+                        &>._974928fe84ca9647-searchBar{
                             width:210px !important;
                         }
                     }
                 }
             }
-            & > .children__9293f{
+            & > ._9293f6b2fc12398a-children{
                 padding-right:3px; /* let's make this look a lot less fucking weird */
                 & > .hoverableContainer__754bd {
                     margin-top:5px !important;
@@ -432,10 +430,13 @@ div[class*="clickTrapContainer"] div[role="menu"] {
     
     
 }
-.channelTextArea__5126c {
-            &>.scrollableContainer__74017 {
-                &>.inner__74017{
-                    &>.textArea__74017 {
+._740174f3d6a2c8fe-inner{
+    padding-left:10px;
+}
+.f75fb00fb7356cbe-channelTextArea {
+            &>._740174f3d6a2c8fe-scrollableContainer {
+                &>._740174f3d6a2c8fe-inner{
+                    &>._740174f3d6a2c8fe-textArea {
                         padding-left:12px;
                     }
                 }
@@ -480,10 +481,24 @@ section[aria-label="Thread header"]{
     .image__44df5{ /* remove enshittified image in announcement channels */
 	    display:none !important;
     }
+
+    .f75fb00fb7356cbe-channelTextArea{
+        
+    }
+    /*remove enshittified stuff*/
+    ._0923f156a0410684-attachWrapper{
+        
+        padding-top:6px;
+        padding-bottom:unset;
+        padding-right:unset;
+    }
+    ._740174f3d6a2c8fe-textArea{
+        padding-left:unset !important;
+    }
     /*Threads only and Disabled*/
     .innerDisabled__74017{
         padding-left:5px !important;
-        &>.attachWrapper__0923f{
+        >._0923f156a0410684-attachWrapper{
             margin-left:5px;
             margin-top:16px;
             margin-bottom:unset;
@@ -627,4 +642,30 @@ ul[aria-label="Channels"] {
 }
 .scrollerSpacer__36d07 {
     height: 25px !important;
+}
+
+/*reply bar*/
+
+.e876a81258d10c05-closeButton{
+    padding-top:2px;
+    padding-left:5px;
+    padding-bottom:5px;
+    padding-right:2px;
+}
+
+._841c8f861f7b2704-mentionButton{
+    padding-top:2px;
+    padding-bottom:5px;
+}
+
+._841c8f861f7b2704-replyLabel{
+    margin-left:10px;
+}
+
+._740174f3d6a2c8fe-buttons{
+    gap:1px !important;
+}
+
+._0923f156a0410684-attachButton{
+    margin-right:5px;
 }
