@@ -1,6 +1,6 @@
 /**
  * @name Unshittified VR Source
- * @version 2.5.1
+ * @version 2.6.1
  * @author wesoree
  * @description unshittified visual refresh source
  */
@@ -48,8 +48,8 @@ nav[class*="guilds"] {
     [class*="listItemWrapper"],
     [class*="wrapper"],
     [class*="tutorialContainer"] [class*="wrapper"],
-    svg[class*="-placeholderMask"],
-    svg:not([class*="-placeholderMask"]) > foreignObject {
+    svg[class*="placeholderMask"],
+    svg:not([class*="placeholderMask"]) > foreignObject {
         width: var(--guildbar-avatar-size) !important;
         height: var(--guildbar-avatar-size) !important;
     }
@@ -70,7 +70,7 @@ nav[class*="guilds"] {
         }
     }
 
-    [class*="childWrapper "]>svg {
+    [class*="childWrapper"]>svg {
         width: calc(var(--guildbar-avatar-size) - 18px);
         height: calc(var(--guildbar-avatar-size) - 18px);
     }
@@ -82,7 +82,7 @@ nav[class*="guilds"] {
         border-radius: 50% !important;
         transition: border-radius 150ms linear;
 
-        [class*="-selected"] &, &[class*="-selected"] {
+        [class*="selected"] &, &[class*="selected"] {
             border-radius: 27% !important;
         }
     }
@@ -315,7 +315,7 @@ html.platform-win{
         bottom: 0px;
         border-radius: 0px;
         border: none;
-        border-left:1px solid #29292D;
+        border-left:1px solid #1E1E20;
         .buttons__37e49{
             gap:1px !important;
         }
@@ -345,7 +345,7 @@ html.platform-win{
         bottom: 0px;
         border-radius: 0px;
         border: none;
-        border-left:1px solid #29292D;
+        border-left:1px solid #1E1E20;
         .buttons__37e49{
             gap:1px !important;
         }
@@ -455,10 +455,10 @@ div[class*="clickTrapContainer"] div[role="menu"] {
 
 /* unfucked nitro/shop */
 .applicationStore_f07d62{
-    border-left:1px solid #29292D;
+    border-left:1px solid #1E1E20;
 }
 .shop__6db1d{
-    border-left:1px solid #29292D;
+    border-left:1px solid #1E1E20;
 }
 
 
@@ -516,7 +516,7 @@ div[class*="clickTrapContainer"] div[role="menu"] {
 .container__133bf{
     & > .container__9293f{
         padding-left:8px;
-        border-left:1px solid #29292D;
+        border-left:1px solid #1E1E20;
     }
 }
 
@@ -538,7 +538,7 @@ div[class*="clickTrapContainer"] div[role="menu"] {
 }
 /*unfucked discover tab*/
 .container_a592e1{
-    border-left:1px solid #29292D;
+    border-left:1px solid #1E1E20;
 }
 /* unfucked chat bar (partially made by abbie) */
 .stackedBars__74017{
