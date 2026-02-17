@@ -1,6 +1,6 @@
 /**
  * @name Unshittified VR Source
- * @version 2.6.1
+ * @version 2.5.1
  * @author wesoree
  * @description unshittified visual refresh source
  */
@@ -271,9 +271,11 @@ html.platform-win{
     .notice__6e2b9,
 	#bd-notices {
 		box-shadow: var(--elevation-low);
-		margin-top: 22px;
-		margin-bottom: -38px;
+		margin-top: 50px;
+        border-top-left-radius: 0;
+        height:40px;
 		grid-area: channelsList / channelsList / channelsList / page;
+
 	}
 	.base_c48ade:has(.notice__6e2b9, .bd-notice) .trailing_c38106 {
 		top: 89px;
