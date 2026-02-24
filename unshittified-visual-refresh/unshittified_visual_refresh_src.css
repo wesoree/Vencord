@@ -329,7 +329,7 @@ html.platform-win{
                 &>.button__67645 {
                     border-radius:8px;
                 }
-                &>.buttonChevron__37e49 {
+                &>[class *="buttonChevron"] {
                     display:none;
                 }
             }
@@ -543,6 +543,7 @@ div[class*="clickTrapContainer"] div[role="menu"] {
     border-left:1px solid #1E1E20;
 }
 /* unfucked chat bar (partially made by abbie) */
+
 .stackedBars__74017{
     &>div{
         &>.clipContainer__841c8{
@@ -551,11 +552,6 @@ div[class*="clickTrapContainer"] div[role="menu"] {
                 &>.replyBar__841c8{
                     &>.actions__841c8{
                         margin-right:2px;
-                        & > [role="switch"]{
-                            .mentionButton__841c8{
-                                padding:6px;
-                            }
-                        }
                         &>.closeButton_e876a8{
                             padding:6px;
                         }
